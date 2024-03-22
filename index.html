@@ -23,7 +23,7 @@
 
    <!-- loding the modules-->
    <script>
-    require([ "esri/config" , "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ], (esriconfig, Map, MapView, Locate, Search) => {
+    require([ "esri/config" , "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer" ], (esriconfig, Map, MapView, Locate, Search, FeatureLayer) => {
 
       //adding in API key
       esriconfig.apikey = "AAPK38961f69b763446a8a93074277f6c658monrdVmdEHRWTyT7kHHF_0qYVXyDdCF8RQ2Z8pUR4r52dvVz8Ytp2CV1iEQsh2yt"
@@ -44,12 +44,21 @@
          container: "viewDiv", // Reference to the DOM node that will contain the view
          map: map, // References the map object
          center: gainesvillepoint,
-        zoom: 13
+        zoom: 12
         });
 
         const locateBtn = new Locate({
           view: view
         });
+
+        // Create featurelayer from feature service 
+         const layer = new FeatureLayer({ 
+        // URL to the service 
+         url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_0d0479ae304d4d569c0cd4a62d6a2830_form/FeatureServer"  
+         });
+
+        // Add the layer to the map
+        map.add(layer);
 
         // Add the locate widget to the top left corner of the view
         view.ui.add(locateBtn, {
