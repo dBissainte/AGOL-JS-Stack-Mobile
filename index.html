@@ -23,7 +23,7 @@
 
    <!-- loding the modules-->
    <script>
-    require([ "esri/config" , "esri/Map", "esri/views/MapView", "esri/widgets/Locate" ], (esriconfig, Map, MapView, Locate) => {
+    require([ "esri/config" , "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ], (esriconfig, Map, MapView, Locate, Search) => {
 
       //adding in API key
       esriconfig.apikey = "AAPK38961f69b763446a8a93074277f6c658monrdVmdEHRWTyT7kHHF_0qYVXyDdCF8RQ2Z8pUR4r52dvVz8Ytp2CV1iEQsh2yt"
@@ -54,6 +54,16 @@
         // Add the locate widget to the top left corner of the view
         view.ui.add(locateBtn, {
           position: "top-left"
+        });
+
+        const searchWidget = new Search({
+        view: view
+        });
+        // Adds the search widget below other elements in
+        // the top left corner of the view
+        view.ui.add(searchWidget, {
+        position: "top-left",
+        index: 2
         });
      });
     </script>
