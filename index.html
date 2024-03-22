@@ -5,8 +5,9 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
    <title>Data Collector for AGOL</title>
-
-   <style>
+  
+    <!-- Adding the CSS for the survey button-->
+    <style>
     html,
     body,
     #viewDiv {
@@ -15,6 +16,29 @@
      height: 100%;
      width: 100%;
     }
+
+      .addRecordBtn {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+    background-color: #0079c1;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+.addRecordBtn:hover {
+  background-color: #005a87;
+}
+
+.addRecordBtn:hover {
+  background-color: #005a87;
+}
    </style>
 
    <!-- importing the css and libraries for esri.js -->
@@ -54,7 +78,7 @@
         // Create featurelayer from feature service 
          const layer = new FeatureLayer({ 
         // URL to the service 
-         url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_0d0479ae304d4d569c0cd4a62d6a2830_form/FeatureServer"  
+         url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_0d0479ae304d4d569c0cd4a62d6a2830_form/FeatureServer"
          });
 
         // Add the layer to the map
@@ -81,6 +105,9 @@
   <body>
    <!-- hello world text to check if everything worked -->
    <h1>Hello World! I am ready to collect data.</h1>
+
+    <!-- adding the button to add a record -->
+    <a href="https://arcg.is/e1PKv"target="_blank" class="addRecordBtn">Add Record</a>
 
    <div id="viewDiv"></div>
   </body>
